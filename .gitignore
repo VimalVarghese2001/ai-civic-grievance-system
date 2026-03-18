@@ -1,0 +1,26 @@
+# ================= BACKEND =================
+AI_Grievance_Backend/venv/
+AI_Grievance_Backend/__pycache__/
+AI_Grievance_Backend/uploads/
+*.pyc
+
+# ================= FRONTEND =================
+AI_Grievance_Frontend/node_modules/
+AI_Grievance_Frontend/dist/
+
+# ================= ENV FILES =================
+.env
+
+# ================= LOGS =================
+*.log
+
+# ================= SYSTEM FILES =================
+.DS_Store
+Thumbs.db
+
+# ================= IDE =================
+.vscode/
+.idea/
+
+# ================= SECURITY =================
+*.txt

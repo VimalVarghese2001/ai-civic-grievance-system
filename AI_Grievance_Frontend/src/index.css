@@ -1,0 +1,241 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Background */
+
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+      rgba(20, 40, 90, 0.8),
+      rgba(20, 40, 90, 0.8)
+    ),
+    url("https://png.pngtree.com/thumb_back/fh260/background/20210205/pngtree-flat-business-login-box-login-page-image_544861.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* Glass Login Card */
+
+.login-card {
+  width: 380px;
+  padding: 40px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  border-radius: 12px;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Inputs */
+
+.form-control {
+  height: 45px;
+  border-radius: 8px;
+}
+
+/* Button */
+
+.btn-primary {
+  height: 45px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.login-container{
+  display:flex;
+  height:100vh;
+}
+
+/* LEFT SIDE */
+
+.login-left{
+  flex:1;
+  background: linear-gradient(135deg,#0f2a6b,#1f4db3);
+  color:white;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  font-size:28px;
+}
+
+/* RIGHT SIDE */
+
+.login-right{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f4f6fb;
+}
+
+/* LOGIN CARD */
+
+.login-form{
+  width:350px;
+  background:white;
+  padding:40px;
+  border-radius:10px;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Main Layout */
+
+.login-container{
+  display:flex;
+  height:100vh;
+}
+
+/* Left Side */
+
+.login-left{
+  flex:1;
+  background: linear-gradient(135deg,#0f2a6b,#2a5298);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:white;
+  text-align:center;
+
+  position:relative;
+}
+
+/* Background pattern */
+
+.login-left::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+
+  background-image:url("https://www.transparenttextures.com/patterns/cubes.png");
+  opacity:0.2;
+}
+
+/* Welcome text */
+
+.welcome-text{
+  position:relative;
+  z-index:2;
+}
+
+.welcome-text h1{
+  font-size:48px;
+  font-weight:700;
+}
+
+.welcome-text p{
+  font-size:18px;
+  margin-top:10px;
+}
+
+/* Right Side */
+
+.login-right{
+  flex:1;
+  background:#f4f6fb;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Login Card */
+
+.login-card{
+  width:360px;
+  background:white;
+  padding:40px;
+
+  border-radius:10px;
+
+  box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* Inputs */
+
+.form-control{
+  height:45px;
+  border-radius:8px;
+}
+
+/* Button */
+
+.btn-primary{
+  height:45px;
+  border-radius:8px;
+}
+
+
+/* Dashboard background */
+
+.dashboard-bg{
+background:#f4f6f9;
+min-height:100vh;
+}
+
+
+/* Sidebar */
+
+.sidebar{
+background:#1f2d3d;
+min-height:100vh;
+}
+
+.sidebar-link{
+color:white;
+display:block;
+padding:10px;
+border-radius:6px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.sidebar-link:hover{
+background:#495057;
+}
+
+
+/* Cards */
+
+.dashboard-card{
+transition:0.25s;
+border:none;
+}
+
+.dashboard-card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+
+/* Buttons */
+
+.btn{
+transition:0.2s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
