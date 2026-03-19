@@ -1,14 +1,23 @@
-from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
-from services.ml_service import vectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from transformers import BertTokenizer, BertModel
+import torch
 
-mongo = None  # will be assigned from app.py
+tokenizer = BertTokenizer.from_pretrained("models/bert_tokenizer")
+bert_model = BertModel.from_pretrained("models/bert_model")
+
+mongo = None
+
+def get_embedding(text):
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True, max_length=128)
+    
+    with torch.no_grad():
+        outputs = bert_model(**inputs)
+    
+    return outputs.last_hidden_state[:, 0, :].numpy()
 
 
-def check_duplicate_and_escalate(new_text, base_priority, threshold=0.75):
-    """
-    Detect duplicates and escalate priority.
-    """
+def check_duplicate_and_escalate(new_text, base_priority, threshold=0.8):
 
     existing_complaints = list(
         mongo.db.complaints.find({}, {"complaint_text": 1})
@@ -23,17 +32,16 @@ def check_duplicate_and_escalate(new_text, base_priority, threshold=0.75):
 
     texts = [c["complaint_text"] for c in existing_complaints]
 
-    new_vector = vectorizer.transform([new_text])
-    existing_vectors = vectorizer.transform(texts)
+    new_vec = get_embedding(new_text)
+    existing_vecs = np.vstack([get_embedding(t) for t in texts])
 
-    similarities = cosine_similarity(new_vector, existing_vectors)[0]
+    similarities = cosine_similarity(new_vec, existing_vecs)[0]
 
-    # Count how many are above threshold
     duplicate_count = int(np.sum(similarities >= threshold))
 
     if duplicate_count > 0:
         escalated_priority = base_priority + (duplicate_count * 5)
-        escalated_priority = min(escalated_priority, 100)  # cap at 100
+        escalated_priority = min(escalated_priority, 100)
 
         return {
             "is_duplicate": True,

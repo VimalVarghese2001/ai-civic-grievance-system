@@ -2,7 +2,20 @@
 AI_Grievance_Backend/venv/
 AI_Grievance_Backend/__pycache__/
 AI_Grievance_Backend/uploads/
+AI_Grievance_Backend/logs/
+AI_Grievance_Backend/results/
+
+# ML Models (VERY IMPORTANT)
+AI_Grievance_Backend/models/*.pkl
+AI_Grievance_Backend/models/bert_model/
+AI_Grievance_Backend/models/bert_tokenizer/
+
+# Python cache
 *.pyc
+
+# ================= DATA =================
+# (Remove this if you want dataset in repo)
+*.csv
 
 # ================= FRONTEND =================
 AI_Grievance_Frontend/node_modules/
